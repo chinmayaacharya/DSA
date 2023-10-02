@@ -1,0 +1,18 @@
+https://practice.geeksforgeeks.org/problems/triangle-pattern-1662285196/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=pattern_15
+
+
+
+public class Main
+{
+	public static void main(String[] args) {
+	    int n=5;
+	  
+	for(int i=1;i<=n;i++){
+	    char j='A';
+	  for(int k=n;k>=i;k--){
+	      System.out.print(j);
+	      j++;
+	  }System.out.println();
+	}
+	}
+}
