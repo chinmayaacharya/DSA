@@ -1,0 +1,28 @@
+https://leetcode.com/problems/happy-number/description/
+Floyd's Cycle
+
+
+class Solution {
+public int sumOfSquares(int n){
+     int sum=0;
+     while(n>0){
+        int i=n%10;
+        n=n/10;
+        sum+=i*i;
+    }
+return sum;
+}
+    public boolean isHappy(int n) {
+        if(n==1){
+            return true;
+        }
+        int slow=n;
+        int fast=n;
+        while(true){
+            slow=sumOfSquares(slow);
+            fast=sumOfSquares(sumOfSquares(fast));
+            if(fast==slow) break;
+        }
+    return slow==1;
+    }
+}  
