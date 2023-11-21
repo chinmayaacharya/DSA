@@ -1,0 +1,13 @@
+https://leetcode.com/submissions/detail/1102585580/
+
+class Solution {
+    public void deleteNode(ListNode node) {
+        swap(node, node.next);
+        node.next=node.next.next;  
+    }
+    public void swap(ListNode node, ListNode next ){
+        int temp1=node.val;
+        node.val=next.val;
+        next.val=temp1;
+    }
+}
