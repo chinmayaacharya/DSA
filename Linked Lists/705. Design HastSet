@@ -1,0 +1,48 @@
+https://leetcode.com/problems/design-hashset/
+
+class MyHashSet {
+    int size=100;
+    List<LinkedList<Integer>> arrList=new ArrayList<LinkedList<Integer>>(size);
+
+    public MyHashSet() {
+        for(int i=0;i<size;i++){
+            arrList.add(new LinkedList());
+        }
+    }
+
+    public int hash(int key){
+        return key%size;
+    }
+    public int search(int key)
+    {
+        int index=hash(key);
+        for(int i=0;i<arrList.get(index).size();i++){
+            if(arrList.get(index).get(i)==key){
+                return i;
+            }
+        } 
+        return -1;
+    }
+    public void add(int key) {
+        if(contains(key)){
+            return;
+        } 
+        arrList.get(hash(key)).addLast(key);
+
+    }
+    
+    public void remove(int key) {
+        if(!contains(key)){
+            return;
+        } 
+
+        arrList.get(hash(key)).remove(search(key));
+    }
+    
+    public boolean contains(int key) {
+        if(search(key)!=-1){
+            return true;
+        } return false;
+    }
+}
+
