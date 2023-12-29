@@ -1,0 +1,31 @@
+https://leetcode.com/problems/rotate-image/
+
+class Solution {
+    public void swap(int[][] arr,int i,int j){
+        int temp=arr[i][j];
+        arr[i][j]=arr[j][i];
+        arr[j][i]=temp;
+    }
+       public void swap1(int[][] arr,int i,int j){
+      
+           int temp=arr[i][j];
+           arr[i][j]=arr[i][arr[0].length-1-j];
+           arr[i][arr[0].length-1-j]=temp;
+       
+    }
+    public void reverse(int[][] arr){
+       for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr[0].length/2;j++){
+           swap1(arr,i,j);
+       }
+       }
+    }
+    public void rotate(int[][] matrix) {
+        for(int i=0;i<matrix.length;i++){
+            for(int j=i+1;j<matrix[0].length;j++){
+                swap(matrix,i,j);
+            }
+        }
+        reverse(matrix);
+    }
+}
